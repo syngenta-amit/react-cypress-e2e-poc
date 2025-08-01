@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
@@ -26,6 +28,10 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "@cypress/code-coverage": "^3.14.5",
+    "babel-plugin-istanbul": "^7.0.0",
+    "cross-env": "^10.0.0",
     "cypress": "^14.5.3"
   }
 }
