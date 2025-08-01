@@ -1,3 +1,4 @@
+// src/pages/Users/AddUser.js
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import "./User.css";
@@ -18,29 +19,35 @@ function AddUser() {
   };
 
   return (
-    <div className="form-container">
-      <h2>Add User</h2>
+    <div className="form-container" data-cy="add-user-form">
+      <h2 data-cy="add-user-heading">Add User</h2>
       <form onSubmit={handleSubmit} className="user-form">
         <div>
-          <label>Name:</label>
+          <label htmlFor="name">Name:</label>
           <input
             name="name"
+            id="name"
+            data-cy="input-name"
             value={form.name}
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
             name="email"
+            id="email"
             type="email"
+            data-cy="input-email"
             value={form.email}
             onChange={handleChange}
             required
           />
         </div>
-        <button type="submit">Add</button>
+        <button type="submit" data-cy="submit-button">
+          Add
+        </button>
       </form>
     </div>
   );

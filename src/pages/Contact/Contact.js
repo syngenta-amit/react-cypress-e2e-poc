@@ -33,38 +33,52 @@ function Contact() {
     <div className="contact-container">
       <h2>Contact Us</h2>
       {submitted ? (
-        <p className="success-message">Thank you for your message!</p>
+        <p className="success-message" data-cy="contact-success">
+          Thank you for your message!
+        </p>
       ) : (
-        <form onSubmit={handleSubmit} className="contact-form">
+        <form
+          onSubmit={handleSubmit}
+          className="contact-form"
+          data-cy="contact-form"
+        >
           <div>
-            <label>Name:</label>
+            <label htmlFor="name">Name:</label>
             <input
+              id="name"
               name="name"
               value={form.name}
               onChange={handleChange}
               required
+              data-cy="contact-name"
             />
           </div>
           <div>
-            <label>Email:</label>
+            <label htmlFor="email">Email:</label>
             <input
+              id="email"
               name="email"
               type="email"
               value={form.email}
               onChange={handleChange}
               required
+              data-cy="contact-email"
             />
           </div>
           <div>
-            <label>Message:</label>
+            <label htmlFor="message">Message:</label>
             <textarea
+              id="message"
               name="message"
               value={form.message}
               onChange={handleChange}
               required
+              data-cy="contact-message"
             />
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" data-cy="contact-submit">
+            Submit
+          </button>
         </form>
       )}
     </div>

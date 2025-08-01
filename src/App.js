@@ -1,8 +1,12 @@
 // src/App.js
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import Home from "./pages/Home";
-import { NavLink } from "react-router-dom";
 import Contact from "./pages/Contact/Contact";
 import AddUser from "./pages/Users/AddUsers";
 import UserList from "./pages/Users/UserList";
@@ -11,22 +15,30 @@ import "./Navbar.css";
 function App() {
   return (
     <Router>
-      <nav className="navbar">
-        <h1 className="logo">My React App</h1>
-        <ul className="nav-links">
+      <nav className="navbar" data-cy="navbar">
+        <h1 className="logo" data-cy="app-logo">
+          My React App
+        </h1>
+        <ul className="nav-links" data-cy="nav-links">
           <li>
-            <NavLink to="/" end>
+            <NavLink to="/" end data-cy="nav-home">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/add-user">Add User</NavLink>
+            <NavLink to="/add-user" data-cy="nav-add-user">
+              Add User
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/users">User List</NavLink>
+            <NavLink to="/users" data-cy="nav-user-list">
+              User List
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/contact" data-cy="nav-contact">
+              Contact
+            </NavLink>
           </li>
         </ul>
       </nav>
