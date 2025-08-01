@@ -4,6 +4,7 @@ import "./Contacts.css";
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -12,6 +13,7 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
@@ -23,8 +25,11 @@ function Contact() {
 
       if (res.ok) {
         setSubmitted(true);
+      } else {
+        setError("Something went wrong.");
       }
     } catch (err) {
+      setError("Something went wrong.");
       console.error("Error submitting form", err);
     }
   };
@@ -79,6 +84,11 @@ function Contact() {
           <button type="submit" data-cy="contact-submit">
             Submit
           </button>
+          {error && (
+            <p className="error-message" data-cy="contact-error">
+              {error}
+            </p>
+          )}
         </form>
       )}
     </div>
