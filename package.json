@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test start http://localhost:3000 cy:run",
+    "coverage:report": "nyc report --reporter=text --reporter=lcov"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -26,6 +30,13 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^14.5.3"
+    "@cypress/code-coverage": "^3.14.5",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "babel-plugin-istanbul": "^7.0.0",
+    "customize-cra": "^1.0.0",
+    "cypress": "^14.5.3",
+    "nyc": "^17.1.0",
+    "react-app-rewired": "^2.2.1",
+    "start-server-and-test": "^2.0.12"
   }
 }

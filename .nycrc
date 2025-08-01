@@ -1,0 +1,15 @@
+{
+    "extends": "@istanbuljs/nyc-config-babel",
+    "all": true,
+    "reporter": [
+        "text",
+        "lcov"
+    ],
+    "include": [
+        "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "exclude": [
+        "src/**/*.test.js",
+        "cypress/**/*"
+    ]
+}

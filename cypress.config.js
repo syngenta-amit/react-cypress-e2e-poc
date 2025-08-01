@@ -2,9 +2,10 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "http://localhost:3001", // 👈 Point to your React dev server
+    baseUrl: "http://localhost:3000", // 👈 Point to your React dev server
     setupNodeEvents(on, config) {
-      // implement node event listeners here if needed
+      require("@cypress/code-coverage/task")(on, config);
+      return config;
     },
   },
 });
